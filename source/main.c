@@ -674,8 +674,10 @@ int _main(struct thread *td) {
   jailbreak();
 
   initSysUtil();
-
-  printf_notification("Running App2USB");
+  
+  char fw_version[6] = {0};
+  get_firmware_string(fw_version);
+  printf_notification("Running App2USB\nPS4 Firmware %s", fw_version);
 
   xfer_cnt = 0;
   isxfer = 0;
